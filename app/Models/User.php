@@ -12,6 +12,10 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    public static $admin = 'admin';
+    public static $support_agent = 'support agent';
+    public static $complainant = 'complainant';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -21,6 +25,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
     ];
 
     /**
@@ -42,4 +47,29 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function isAdmin()
+    {
+        return $this->role === self::$admin;
+    }
+
+    public function isUser()
+    {
+        return $this->role === self::$complainant;
+    }
+
+    public function isAgent()
+    {
+        return $this->role === self::$support_agent;
+    }
+
+    public function tickets()
+    {
+        return $this->hasMany(Ticket::class);
+    }
+
+    public function ticket_replies()
+    {
+        return $this->hasMany(TicketReply::class);
+    }
 }

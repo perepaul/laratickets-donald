@@ -1,6 +1,7 @@
 # LaraTickets
 
-**LaraTickets** is a support portal that enables users to log their complains. The system is expected to have three types of users, admins, support agents and complainants or the users.
+**LaraTickets** is a support portal that enables users to log their complains. The system is expected to have three
+types of users, admins, support agents and complainants or the users.
 
 #### Key Features
 
@@ -16,6 +17,16 @@
 10. All users types should be able to update their.
 11. Admin users should be created via web or command line interface
 
-Normalize the use of core Laravel features such as Pagination, Gates, Commands, Eloquent eager loading etc. Using these advanced features can greatly impact our decision.
+Normalize the use of core Laravel features such as Pagination, Gates, Commands, Eloquent eager loading etc. Using these
+advanced features can greatly impact our decision.
 
 ### Good Luck!
+
+#### How To Use
+
+1. Pull branch
+2. Run 'composer install'
+3. Run 'php artisan key:generate --ansi'
+3. Run migration and seed database
+4. Run 'php artisan create:admin' to create an admin
+5. Run the app
