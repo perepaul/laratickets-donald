@@ -36,7 +36,7 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-        if ($request->user()) {
+        if ($request->user() && $request->user()->isAdmin()) {
             $role = User::$support_agent;
         } else {
             $role = User::$complainant;
